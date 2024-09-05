@@ -27,8 +27,11 @@ namespace carRental
         // Virtual Method: Processes the rental of a vehicle and adds it to the list of rented vehicles
         public virtual void RentVehicle(Vehicle vehicle, int days)
         {
+            if (!rentedVehicles.Contains(vehicle))
+            {
+                rentedVehicles.Add(vehicle);
+            }
             double sum = vehicle.CalculateRentalCost(days);
-            rentedVehicles.Add(vehicle);
             if (!(this is CorporateCustomer))
             {
                 Console.WriteLine($"{name} rented {vehicle.GetModel()} for {days} days at a cost of {sum}.");

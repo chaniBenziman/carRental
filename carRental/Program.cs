@@ -20,12 +20,11 @@ foreach (var vehicle in regularCustomer.GetRentedVehicles())
     Console.WriteLine($"{vehicle.GetModel()} - {vehicle.CalculateRentalCost(3)}");
 }
 
-Console.WriteLine($"Rented Vehicles by {corporateCustomer.GetName()}:");
+Console.WriteLine($"Rented Vehicles by {((CorporateCustomer)corporateCustomer).GetName()}:");
 List<Vehicle> vehicles = corporateCustomer.GetRentedVehicles();
 foreach (var vehicle in vehicles)
 {
     Console.Write($"{vehicle.GetModel()} - ");
     corporateCustomer.RentVehicle(vehicle, 2);
-
 }
 
